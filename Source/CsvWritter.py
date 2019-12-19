@@ -37,7 +37,7 @@ class Writter:
 
             #Se añade al segundo archivo el encabezado en la fila correspondiente
             #El encabezado consta de el nombre de la categoria y el número de elementos dentro de ella
-            rows2[0][i] = self.tree[i].attrib['category'] + " (" + str(len(self.tree[i])) + ")"
+            rows2[0][i] = self.tree[i].attrib['category'].upper() + " (" + str(len(self.tree[i])) + ")"
 
             for j in range(len(self.tree[i])):
 
@@ -61,11 +61,11 @@ class Writter:
 
     def generateCsv(self):
         #Se abre el primer archivo para escritura y se añaden la listas de filas correspondiente
-        with open('../Data/example-list.csv', 'w', newline='') as file1:
+        with open('../Data/list.csv', 'w', newline='') as file1:
             writer = csv.writer(file1)
             writer.writerows(self.rows1)
 
         #Se abre el segundo archivo para escritura y se añaden la listas de filas correspondiente
-        with open('../Data/example-categorization.csv', 'w', newline='') as file2:
+        with open('../Data/categorization.csv', 'w', newline='') as file2:
             writer = csv.writer(file2)
             writer.writerows(self.rows2)

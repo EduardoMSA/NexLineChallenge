@@ -16,7 +16,7 @@ Para realizar el desafío se utilizó [Python 3](https://www.python.org/) acompa
 ## Estructura
 La solución está compuesta por tres clases, todas ellas contenidas dentro de la carpeta [*Source*](https://github.com/EduardoMSA/NexLineChallenge/tree/master/Source):
 * [Scrapper](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Source/WebScrapper.py): Se encuentran todos los métodos necesarios para obtener los datos del [blog](https://blog.nextline.mx) y convertirlos a un [archivo XML](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/data.xml)
-* [Writer](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Source/CsvWritter.py): Se encuentra lo necesario para tomar los datos del [archivo XML](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/data.xml) y representarlos en CSV de la manera en que se especifica ([Categorization](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/example-categorization.csv) y [List](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/example-list.csv))
+* [Writer](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Source/CsvWritter.py): Se encuentra lo necesario para tomar los datos del [archivo XML](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/data.xml) y representarlos en CSV de la manera en que se especifica ([Categorization](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/categorization.csv) y [List](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Data/list.csv))
 * [Main](https://github.com/EduardoMSA/NexLineChallenge/blob/master/Source/main.py): Se ejecuta el programa
 
 ## Para iniciar
