@@ -62,6 +62,7 @@ class Writter:
 
     def __init__(self):
         #Se obtiene el archivo XML generado con el WebScrapper
+        #Se añade el .getroot() para obtener el Element del Element_Tree, lo que nos facilita su manejo
         self.tree = etree.parse('../Data/data.xml').getroot()
 
         #Se obtienen las listas de filas con los datos solicitados
