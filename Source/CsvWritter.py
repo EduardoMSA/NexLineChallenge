@@ -29,7 +29,7 @@ class Writter:
         #Para nuestro primer archivo, se sabe que la primera fila serán los encabezados de los datos requeridos
         rows1 = [['Título','Categoría','Fecha','Número de Comentarios','Último Comentario']]
 
-        #Para nuestro segundo archivo, se inicializa una matriz Número máximo de posts dentro de una categoría X Número de categorías
+        #Para nuestro segundo archivo, se inicializa una matriz [Número máximo de posts dentro de una categoría + 1 (fila para los encabezados) X Número de categorías]
         rows2 = [ [ "" for i in range(len(self.tree)) ] for j in range(self.getMaxPostNum()+1) ]
 
         #Se recorrerá el arbol XML arbol->categorias->post
