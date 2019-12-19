@@ -114,10 +114,3 @@ class NextLineScrapper:
         data = open('../Data/data.xml','w') #Se crea un archivo XML en la carpeta de Data dentro del proyecto
         print(etree.tostring(self.postsTree, pretty_print=True, encoding='unicode'),file = data) #Se guarda el árbol generado hasta el momento
         data.close()#Se cierra el archivo
-
-
-
-
-#ws.getComments('https://blog.nextline.mx/nuevo-ano-nuevas-metas/')
-
-#print(etree.tostring(postsTree, pretty_print=True,encoding='unicode'))

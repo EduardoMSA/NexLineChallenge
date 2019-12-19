@@ -2,7 +2,7 @@ from lxml import etree
 import csv
 
 
-class writter:
+class Writter:
     #Clase que se encargará de tomar el XML obtenido del WebScrapper y convertirlo en los archivos CSV requeridos
 
     def getMaxPostNum(self):
@@ -68,7 +68,3 @@ class writter:
         rows = self.getRows()
         self.rows1 = rows[0]
         self.rows2 = rows[1]
-
-
-w = writter()
-w.generateCsv()
