@@ -117,9 +117,7 @@ class NextLineScrapper:
 
 
 
-ws = NextLineScrapper()
-ws.scanSite()
-ws.generateXML()
+
 #ws.getComments('https://blog.nextline.mx/nuevo-ano-nuevas-metas/')
 
 #print(etree.tostring(postsTree, pretty_print=True,encoding='unicode'))
