@@ -3,7 +3,7 @@ import lxml.html
 import copy
 from lxml import etree
 
-class Scrapper:
+class NextLineScrapper:
 
     def __init__(self):
 
@@ -27,6 +27,7 @@ class Scrapper:
         date = etree.Element("date")
         title = etree.Element("title")
         href = etree.Element("href")
+        comments = etree.Element("comments")
 
         for c in aText[0]:
             categories.append(etree.Element("v", category=c.attrib['title']))   #Se obtienen los nombre de todas las categorias
@@ -34,12 +35,18 @@ class Scrapper:
         date.append(etree.Element("v", date=aText[2].text)) #se obtiene la feha del post
         title.append(etree.Element("v", title=aText[1][0].text)) #se obtiene el nombre del post
         href.append(etree.Element("v", href=aText[1][0].attrib['href'])) #se obtiene el enlace del post
+        if(hComnts): #Revisa si existen comentarios, si los hay, se entra a la página del post a buscarlos, si no, omite la pagina
+            coment = self.getComments(str(aText[1][0].attrib['href']))
+            comments.append(etree.Element("v", Number = coment[0], Last = coment[1]))
+        else:
+            comments.append(etree.Element("v", Number = "0", Last = ""))
 
         #Se añaden los elementos al post
         tree.append(title)
         tree.append(date)
         tree.append(href)
         tree.append(categories)
+        tree.append(comments)
 
         #Regresa el árbol del post
         return tree
@@ -74,6 +81,18 @@ class Scrapper:
                 self.checkCategories(c)
                 self.addPost(p,c)
 
+    def getComments(self,html):
+
+        doc = lxml.html.fromstring(requests.get(html).content)
+        commentList = doc.xpath('//ol[@class="commentlist"]')[0][0] #Se obtiene la sección de comentarios
+        commentLen = 0 #No se puede poner simplemente len porque detecta elementos que no son comentarios
+        for i in commentList:
+            if(i.tag == "article" or i.tag == "ul"): #Si el tag del elemento es article (comentario) o ul (respuesta) se añade uno a nuestro conteo de comentarios
+                commentLen=commentLen+1
+        lastComment = commentList[0][2][0].text #Se obtiene el texto del último comentario
+        return (str(commentLen),lastComment) #Se regresa el numero de comentarios y el texto del ultimo comentario
+
+
     def scanSite(self):
         #Se obtendrán los posts de todas las páginas del sitio
         for i in range(1,self.numPages+1):
@@ -98,8 +117,9 @@ class Scrapper:
 
 
 
-ws = Scrapper()
+ws = NextLineScrapper()
 ws.scanSite()
 ws.generateXML()
+#ws.getComments('https://blog.nextline.mx/nuevo-ano-nuevas-metas/')
 
 #print(etree.tostring(postsTree, pretty_print=True,encoding='unicode'))
