@@ -9,7 +9,7 @@ El objetivo del desafío es la obtención de datos dentro del [blog de NextLine]
 Dentro de la carpeta [*Instrucciones*](https://github.com/EduardoMSA/NexLineChallenge/tree/master/Instrucciones) se pueden encontrar los requerimientos del desafío, así como una muestra de los resultados esperados.
 
 ## Herramientas utilizadas
-Para realizar el desafío s hizo uso de [Python 3](https://www.python.org/) acompañado por las siguientes librerías:
+Para realizar el desafío se utilizó [Python 3](https://www.python.org/) acompañado por las siguientes librerías:
 * [Requests](https://2.python-requests.org/en/master/)
 * [lxml](https://lxml.de/)
 
