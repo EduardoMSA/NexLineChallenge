@@ -5,6 +5,16 @@ import csv
 class Writter:
     #Clase que se encargará de tomar el XML obtenido del WebScrapper y convertirlo en los archivos CSV requeridos
 
+    def __init__(self):
+        #Se obtiene el archivo XML generado con el WebScrapper
+        #Se añade el .getroot() para obtener el Element del Element_Tree, lo que nos facilita su manejo
+        self.tree = etree.parse('../Data/data.xml').getroot()
+
+        #Se obtienen las listas de filas con los datos solicitados
+        rows = self.getRows()
+        self.rows1 = rows[0]
+        self.rows2 = rows[1]
+
     def getMaxPostNum(self):
         #Se obtiene el número máximo de posts dentro de una sola categoría
         max = len(self.tree[0])
@@ -59,13 +69,3 @@ class Writter:
         with open('../Data/example-categorization.csv', 'w', newline='') as file2:
             writer = csv.writer(file2)
             writer.writerows(self.rows2)
-
-    def __init__(self):
-        #Se obtiene el archivo XML generado con el WebScrapper
-        #Se añade el .getroot() para obtener el Element del Element_Tree, lo que nos facilita su manejo
-        self.tree = etree.parse('../Data/data.xml').getroot()
-
-        #Se obtienen las listas de filas con los datos solicitados
-        rows = self.getRows()
-        self.rows1 = rows[0]
-        self.rows2 = rows[1]
